@@ -33,7 +33,7 @@ def train(channel_input_dirs, hyperparameters, hosts, num_gpus, **kwargs):
     horizon = hyperparameters.get('horizon', 24)
     window = hyperparameters.get('window', 24*7)
     file_path = channel_input_dirs['training']
-
+    print("File Path = %s", file_path)
     ts_data = TimeSeriesData(file_path, window=window, horizon=horizon)
     ctx = mx.gpu() if num_gpus > 0 else mx.cpu()
 
